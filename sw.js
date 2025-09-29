@@ -1,25 +1,17 @@
-self.addEventListener(
-    'fetch',
-    function (evento) {
-        console.log(evento.request.url);
-        if (/\.jpg$/.test(evento.request.url)) {
-            evento.respondWith(fetch('unicorn.jpg'));
-        }
-        else if (/\.png$/.test(evento.request.url)) {
-            evento.respondWith(fetch('utp.jpg'));
-        }
-    }
-)
 var cacheName = 'cacheTest';
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(cacheName)
             .then(cache => cache.addAll([
-                'sw.js',
-                'hola.jpg',
-                'index.html',
-                'lib1.js'
+                './sw.js',
+                './index.html',
+                './lib1.js',
+                './hola.jpg',
+                './iconos/homescreen192.png',
+                './iconos/homescreen144.png',
+                './unicornio.jpg',
+                './favicon.ico' 
             ]))
     );
 });
