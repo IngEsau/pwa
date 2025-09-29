@@ -17,6 +17,10 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', function(event) {
+    if (event.request.url.includes('?')) {
+        event.respondWith(fetch(event.request));
+        return;
+    }
     event.respondWith(
         caches.match(event.request)
             .then(function(response) {
