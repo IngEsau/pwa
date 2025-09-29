@@ -1,14 +1,13 @@
 const params = new URLSearchParams(window.location.search);
-const n = params.get('n')
-const d = params.get('d')
-
+const n = Number(params.get('n'));
+const d = Number(params.get('d'));
 
 class Quickchart {
     constructor(d){
         this.d = d;
     }
     crearCadunos(){        
-        let cadunos = Array(Number(this.d)).fill("1").join(", ");
+        let cadunos = Array(this.d).fill("1").join(", ");
         return cadunos;
     }
     generarSrcImg(){        
